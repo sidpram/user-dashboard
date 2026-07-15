@@ -16,7 +16,7 @@ The application images are built using optimized, multi-stage Dockerfiles and ar
 
 ---
 
-## 🛠️ Setup Instructions
+## Setup Instructions
 
 ### 1. Configure the Environment
 Ensure you have a file named `.env` in the root directory of the project with the following configuration:
