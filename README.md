@@ -26,6 +26,7 @@ BACKEND_PORT=3000
 MONGO_PORT=27017
 MONGO_URI=mongodb://mongodb:27017/user_dashboard
 
+```
 ### 2. Start the Application
 Run the following single command from the root directory to automatically pull the images from Docker Hub, configure the network links, set up database volumes, and start the entire ecosystem in the background:
 
