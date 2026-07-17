@@ -39,3 +39,47 @@ Frontend Portal: Open your browser and go to http://localhost:8080 to interact w
 Backend API Check: Visit http://localhost:3000/api/users to view raw backend records.
 
 Check Running Containers: Run docker compose ps to verify that all three services are up and running cleanly.
+
+
+#### Command used
+cd .\backend\
+npm i
+npm init -y
+npm install
+npm install express mongoose cors
+node server.js
+npm i mongoose
+npm install mongodb
+
+
+
+mongodb+srv://sidpram_db_user:8E1R4P654FX3Ea8V@cluster0.8acfkyw.mongodb.net/?appName=Cluster0
+MONGODB_URI="mongodb+srv://sidpram_db_user:RdrnN5mzl8UUjxn6@cluster0.8acfkyw.mongodb.net"
+
+
+const { MongoClient, ServerApiVersion } = require('mongodb');
+const uri = "mongodb+srv://sidpram_db_user:<db_password>@cluster0.8acfkyw.mongodb.net/?appName=Cluster0";
+
+// Create a MongoClient with a MongoClientOptions object to set the Stable API version
+const client = new MongoClient(uri, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  }
+});
+
+async function run() {
+  try {
+    // Connect the client to the server	(optional starting in v4.7)
+    await client.connect();
+    // Send a ping to confirm a successful connection
+    await client.db("admin").command({ ping: 1 });
+    console.log("Pinged your deployment. You successfully connected to MongoDB!");
+  } finally {
+    // Ensures that the client will close when you finish/error
+    await client.close();
+  }
+}
+run().catch(console.dir);
+
