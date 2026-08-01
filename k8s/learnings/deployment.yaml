@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+  name: nginx-deployment
+  namespace: user-portal
+
+spec: 
+  replicas: 2
+  selector:
+    matchLabels:
+      app: user-portal
+  
+  template: 
+    metadata:
+      labels:
+        app: user-portal
+    spec:
+      containers:
+      - name: nginx-container
+        image: nginx:latest
+        
+        ports:
+        - containerPort: 80

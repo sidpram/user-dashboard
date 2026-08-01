@@ -24,7 +24,7 @@ Ensure you have a file named `.env` in the root directory of the project with th
 FRONTEND_PORT=8080
 BACKEND_PORT=3000
 MONGO_PORT=27017
-MONGO_URI=mongodb://mongodb:27017/user_dashboard
+MONGO_URI=mongodb://mongodb:27017/user_portal
 
 ```
 ### 2. Start the Application
@@ -50,6 +50,24 @@ npm install express mongoose cors
 node server.js
 npm i mongoose
 npm install mongodb
+
+ Id     Duration CommandLine
+  --     -------- -----------
+   1       docker images -a
+   2       docker images -a
+   3       docker run -d --name user-frontend --network dashboard-net -p 3010:80 user-dashboard-frontend
+   4       docker run -d --name user-frontend --network dashboard-net -p 3010:80 user-portal-frontend
+   7       docker network ls
+   8       docker run -d --name user-backend --network dashboard-net -p 3000:3000 user-portal-backend
+   9       docker run -d --name user-backend --network dashboard-net -p 3011:3000 user-portal-backend
+  10       docker ps -a
+  11       cd C:\Users\Administrator\VS-Code\User-Portal
+  12       docker-compose up --build
+
+  to remove: 
+  docker rm -f af4f940cf611 314434f40891 ca8692bf1490
+
+  
 
 
 
@@ -84,6 +102,19 @@ async function run() {
 run().catch(console.dir);
 
 
+## Kubernetes implementation
 
-## Docker  : 
-docker images -a
+1. first create kind cluster : mention in kind dir as kind-congif.yaml file
+command>  kind create cluster --name user-portal --config .\kind\kind-config.yaml
+
+2. Now create all the Kubernetes yaml files in k8 dir.
+    kubectl get nodes
+    kubectl get all
+
+    a. Namespace.yaml file. 
+    cd .\k8s\
+    kubectl apply -f .\namespace.yaml
+    kubectl get namespace
+
+    
+          

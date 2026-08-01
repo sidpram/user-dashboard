@@ -1,0 +1,16 @@
+apiVersion: v1
+
+kind: Pod
+
+metadata:
+  name: nginx-pod
+  namespace: user-portal
+  labels:
+    app: user-portal
+
+spec:
+  containers:
+  - name: nginx-container
+    image: nginx:latest
+    ports:
+    - containerPort: 80 
