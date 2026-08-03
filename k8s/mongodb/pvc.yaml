@@ -1,0 +1,17 @@
+apiVersion: v1
+
+kind: PersistentVolumeClaim
+
+metadata:
+  name: mongodb-pvc
+  namespace: user-portal
+  
+spec:
+  resources:
+    requests:
+      storage: 2Gi
+
+  volumeMode: Filesystem
+  
+  accessModes:
+    - ReadWriteOnce
