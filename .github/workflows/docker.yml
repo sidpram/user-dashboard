@@ -30,9 +30,9 @@ jobs:
         # -----------------------
         - name: Build and Push Backend Docker Image
           run: |
-            docker build -t \
-            ${{ secrets.DOCKERHUB_USERNAME }}/user-dashboard-backend:latest \
-            ${{ secrets.DOCKERHUB_USERNAME }}/user-dashboard-backend:v${{ github.run_number }} \
+            docker build  \
+            -t ${{ secrets.DOCKERHUB_USERNAME }}/user-dashboard-backend:latest \
+            -t ${{ secrets.DOCKERHUB_USERNAME }}/user-dashboard-backend:v${{ github.run_number }} \
             ./backend
             docker push ${{ secrets.DOCKERHUB_USERNAME }}/user-dashboard-backend:latest
             docker push ${{ secrets.DOCKERHUB_USERNAME }}/user-dashboard-backend:v${{ github.run_number }}
@@ -42,9 +42,9 @@ jobs:
         # -----------------------
         - name: Build & Push Frontend Docker Image
           run: |
-                docker build -t \
-                ${{ secrets.DOCKERHUB_USERNAME }}/user-dashboard-frontend:latest \
-                ${{ secrets.DOCKERHUB_USERNAME }}/user-dashboard-frontend:v${{ github.run_number }} \
+                docker build \
+                -t ${{ secrets.DOCKERHUB_USERNAME }}/user-dashboard-frontend:latest \
+                -t ${{ secrets.DOCKERHUB_USERNAME }}/user-dashboard-frontend:v${{ github.run_number }} \
                 ./frontend
                 docker push ${{ secrets.DOCKERHUB_USERNAME }}/user-dashboard-frontend:latest
                 docker push ${{ secrets.DOCKERHUB_USERNAME }}/user-dashboard-frontend:v${{ github.run_number }}

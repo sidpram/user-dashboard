@@ -162,10 +162,8 @@ command>  kind create cluster --name user-portal --config .\kind\kind-config.yam
   42        9.341 docker build -t user-portal-frontend:v1 ./frontend
   43        0.416 docker images -a
   44        2.252 docker rmi -f sidpram/user-dashboard-backend
-  45        0.163 docker rmi -f sidpram/user-dashboard-fronntend
   46        0.777 docker rmi -f sidpram/user-dashboard-frontend
   47        0.367 docker images -a
-  48        5.164 docker build -t user-portal-backend:v1 ./backendend
   49     1:05.386 docker build -t user-portal-backend:v1 ./backend
   50        2.126 docker images -a
   51        1.831 docker tag user-portal-frontend:v1 sidpram/user-dashboard-frontend:v1
