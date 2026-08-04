@@ -33,7 +33,7 @@ const logToFile = (message) => {
 // ==========================================================================
 // API Endpoints
 // ==========================================================================
-app.post('/health', async (req, res) => {
+app.get('/health', async (req, res) => {
     res.status(200).json({ 
       status: 'UP', 
       message: 'Yes, Backend is running properly.', 
