@@ -20,6 +20,7 @@ spec:
       containers:
       - name: frontend
         image: sidpram/user-dashboard-frontend:latest
+        imagePullPolicy: Always
         
         ports:
         - containerPort: 80

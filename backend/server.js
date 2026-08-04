@@ -35,7 +35,7 @@ const logToFile = (message) => {
 // ==========================================================================
 app.get('/health', async (req, res) => {
     res.status(200).json({ 
-      status: 'UP', 
+      status: 'OK', 
       message: 'Yes, Backend is running properly.', 
       timestamp: new Date().toISOString() });
 });

@@ -23,6 +23,7 @@ spec:
       containers:
       - name: backend-container
         image: sidpram/user-dashboard-backend:latest
+        imagePullPolicy: Always
 
         ports:
         - containerPort: 3000
