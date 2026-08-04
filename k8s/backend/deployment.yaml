@@ -21,14 +21,22 @@ spec:
     spec:
       containers:
       - name: backend-container
-        image: sidpram/user-dashboard-backend:v2
+        image: sidpram/user-dashboard-backend:latest
 
         ports:
         - containerPort: 3000
 
         env:
         - name: PORT
-          value: "3000"
+          #value: "3000"
+          valueFrom:
+            configMapKeyRef:
+              name: backend-configmap
+              key: PORT
 
         - name: MONGO_URI
-          value: mongodb://mongodb:27017/user_portal
+          #value: mongodb://mongodb:27017/user_portal
+          valueFrom:
+            configMapKeyRef:
+              name: backend-configmap
+              key: MONGO_URI
