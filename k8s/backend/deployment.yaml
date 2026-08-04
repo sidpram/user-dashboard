@@ -19,12 +19,20 @@ spec:
         app: backend
 
     spec:
+
       containers:
       - name: backend-container
         image: sidpram/user-dashboard-backend:latest
 
         ports:
         - containerPort: 3000
+        
+        startupProbe:
+          httpGet:
+            path: /health
+            port: 3000
+          failureThreshold: 6
+          periodSeconds: 10
 
         env:
         - name: PORT
